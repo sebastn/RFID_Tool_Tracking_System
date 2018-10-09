@@ -23,6 +23,7 @@ The Nostos RFID solution uses only one RFID reader irrespective of the area to b
 - UHF RFID reader mounted on the Nostos Robot
 - Wifi Module (ESP8266) mounted on the Nostos Robot
 - IoT gateway (Raspberry Pi)
+- User Interface - NodeRed Dashboard
 
 1. Nostos Robot
   The Nostos Robot is suspended on a continously moving lift system. The lift system is driven by a motor which is plugged into a wall plug. The Nostos Robot houses most of the components in the Nostos solution. It mainly has
@@ -59,5 +60,12 @@ The Nostos RFID solution uses only one RFID reader irrespective of the area to b
   The Raspberry Pi acts as the IoT Gateway. It collects the wireless data from the WiFi module and then displays the corresponding information on the IoT Dashboard.
 
   ![](images/RPi.jpg)
+  
+6. User Interface - NodeRed Dashboard
+
+The User interface of the Nostos Tool Tracking system is a NodeRed Dashboard. Node-RED provides a browser-based flow editor that makes it easy to wire together flows using the wide range of nodes in the palette. Node-RED provides a browser-based flow editor, which can be used to create JavaScript functions. The runtime is built on Node.js. The flows created in Node-RED are stored using JSON. MQTT nodes are used to make properly configured connections.
+
+The data received from the Iot gateway (which includes the RFID tag details along with the timestamp) is fed into a javascript node where the location of the corresponding tool is determined by using synchronization techniques with the moving robot. This determined location of the tool is displayed on a 2D map (along with the coordinates) on the dashboard from which the user can easily figure out the location of the tools within the workspace. In addition to the tracking facility, the dashboard is also designed to display a wide range of information like temperature/ humidity/ lighting conditions of the workspace (by fetching data from a sensor tag). In general, the end user can access the RFID tracking system through a simple user friendly dashboard without being concerned about the the different hardware devices (like the RFID reader, Antennas), connection protocols etc.
+
 
  
